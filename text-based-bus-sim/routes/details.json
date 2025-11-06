@@ -1,0 +1,11 @@
+{
+  "routes": [
+    "route-1"
+  ],
+  "tickets": {
+    "single": {
+      "name": "single",
+      "price": 2.5
+    }
+  }
+}
