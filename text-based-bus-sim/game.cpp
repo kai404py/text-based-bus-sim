@@ -16,10 +16,19 @@ void PrintStops(string route[]) {
 }
 
 void game::startRoute(int RouteNumber) {
-	string stops[1][4] = {
-		{"Stop 1", "Stop 2", "Stop 3", "Stop 4"}
+	string routes[2][4] = {
+		{"0", "1", "2", "3"},
+		{"1", "25", "101", "201"}
 	};
 
+	string stops[4][5] = {
+		{"Stop 1 - 1", "Stop 2", "Stop 3", "Stop 4"},
+		{"Stop 1 - 25", "Stop 2", "Stop 3", "Stop 4"},
+		{"Stop 1 - 101", "Stop 2", "Stop 3", "Stop 4"},
+		{"Stop 1 - 201", "Stop 2", "Stop 3", "Stop 4"},
+	};
+
+	system("cls");
 	cf.setColor(7, 0);
 	cout << "Loading Route " << RouteNumber << endl;
 	sleep_for(1s);
@@ -27,5 +36,18 @@ void game::startRoute(int RouteNumber) {
 	d.RouteNumber(RouteNumber);
 	sleep_for(1s);
 	system("cls");
-	PrintStops(stops[0]);
+
+	for (int j = 0; j < 4; j++) {
+		int num = stoi(routes[1][j]);
+		if (num == RouteNumber) {
+			int id = stoi(routes[0][j]);
+			PrintStops(stops[id]);
+			break;
+		}
+		else {
+			continue;
+		}
+	}
+	
+	cout << endl;
 }
