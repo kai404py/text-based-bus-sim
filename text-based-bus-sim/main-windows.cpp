@@ -5,31 +5,30 @@
 //  Created by Kai on 06/11/2025.
 //
 
-//#include "main.h"
-#include "bus.cpp"
-#include "tts.h"
-
 #include <iostream>
 
+//#include "main.h"
+#include "tts.h"
 #include "windows.h"
-//#include "linux.h"
 
-void hello()
-{
-  CustomTTS tts;
-  tts.Speak("Hello, welcome to the text based bus simulator!");
-  sleep(1);
-  system("clr");
-  bus();
-}
+#include "bus.cpp"
+
+void hello();
 
 int main()
   {
-    CustomTTS tts;
+    //CustomWTTS tts;
     hello();
-    
 
-    
-    bus();
     return 0;
+}
+
+void hello()
+{
+    CustomWTTS tts;
+
+    tts.Speak("Hello, welcome to the text based bus simulator!");
+    sleep_for(1s);
+    system("cls");
+    Drawbus(1);
 }
