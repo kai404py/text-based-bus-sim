@@ -123,16 +123,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="bus.cpp" />
+    <ClCompile Include="draw.cpp" />
     <ClCompile Include="main-windows.cpp" />
+    <ClCompile Include="Menus.cpp" />
     <ClCompile Include="tts.cpp" />
     <ClCompile Include="windowsTTS.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="draw.h" />
     <ClInclude Include="linux.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="Menus.h" />
     <ClInclude Include="tts.h" />
-    <ClInclude Include="windows.h" />
+    <ClInclude Include="windowsH.h" />
     <ClInclude Include="windowsTTS.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -24,7 +24,10 @@
     <ClCompile Include="tts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bus.cpp">
+    <ClCompile Include="draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,10 +41,16 @@
     <ClInclude Include="linux.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="windows.h">
+    <ClInclude Include="windowsH.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="windowsTTS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="draw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Menus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

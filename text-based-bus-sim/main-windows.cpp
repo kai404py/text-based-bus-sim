@@ -9,26 +9,20 @@
 
 //#include "main.h"
 #include "tts.h"
-#include "windows.h"
+#include "menus.h"
+#include "windowsH.h"
+#include "draw.h"
 
-#include "bus.cpp"
 
-void hello();
+using namespace std;
+Menus m;
+
 
 int main()
   {
     //CustomWTTS tts;
-    hello();
+    m.mainMenu();
 
     return 0;
 }
 
-void hello()
-{
-    CustomWTTS tts;
-
-    tts.Speak("Hello, welcome to the text based bus simulator!");
-    sleep_for(1s);
-    system("cls");
-    Drawbus(1);
-}
