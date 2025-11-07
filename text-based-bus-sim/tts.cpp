@@ -14,7 +14,8 @@ void CustomTTS::Speak(string text)
 
     const char* command = str.c_str();
 
-    std::cout << "\n" << text <<  "\n" << std::endl;
+    //std::cout << "\n" << text << std::endl;
+    std::cout << "\n";
     
     system(command);
 }

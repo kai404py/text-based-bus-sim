@@ -20,16 +20,14 @@ void hello()
   tts.Speak("Hello, welcome to the text based bus simulator!");
   sleep(1);
   system("clear");
-  bus();
+  Drawbus(1);
 }
 
 int main()
   {
     CustomTTS tts;
     hello();
-    
 
-    
     //bus();
     return 0;
 }
