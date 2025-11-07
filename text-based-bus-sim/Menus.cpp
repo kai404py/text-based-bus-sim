@@ -33,12 +33,14 @@ again:
         cout << "Routes:" << endl;
         gotoxy(50, 14);
         cout << "25" << endl;
-        gotoxy(50, 16);
+        gotoxy(50, 15);
         cout << "99" << endl;
-        gotoxy(50, 18);
+        gotoxy(50, 16);
         cout << "101" << endl;
-        gotoxy(50, 20);
+        gotoxy(50, 17);
         cout << "103" << endl;
+        gotoxy(50, 18);
+        cout << "000" << endl;
 
         gotoxy(50, 23);
         cout << "USE UP AND DOWN ARROW KEYS...";
@@ -50,24 +52,29 @@ again:
         }
         if (j == 1) {
             cfa.setColor(0, 7);
-            gotoxy(50, 16);
+            gotoxy(50, 15);
             cout << "99" << endl;
         }
         if (j == 2) {
             cfa.setColor(0, 7);
-            gotoxy(50, 18);
+            gotoxy(50, 16);
             cout << "101" << endl;
         }
         if (j == 3) {
             cfa.setColor(0, 7);
-            gotoxy(50, 20);
+            gotoxy(50, 17);
             cout << "103" << endl;
+        }
+        if (j == 4) {
+            cfa.setColor(0, 7);
+            gotoxy(50, 18);
+            cout << "000" << endl;
         }
 
         option = _getch();
         switch (option) {
-        case 80: j++; if (j > 3) j = 0; break;
-        case 72: j--; if (j < 0) j = 3; break;
+        case 80: j++; if (j > 6) j = 0; break;
+        case 72: j--; if (j < 0) j = 6; break;
         }
     } while (option != 13);
 
@@ -84,6 +91,9 @@ again:
         break;
     case 3:
         g.startRoute(103);
+        break;
+    case 4:
+        g.startRoute(000);
         break;
     }
 

@@ -256,7 +256,91 @@ void Hello() {
     std::cout << "#########################################################################################################################################################\n";
 }
 
+void Clear() {
+    std::cout << "                                                                                                                                                         \n";
+    std::cout << "                                                                                                                                                         \n";
+    std::cout << "                                                                                                                                                         \n";
+    std::cout << "                                                                                                                                                         \n";
+    std::cout << "                                                                                                                                                         \n";
+    std::cout << "                                                                                                                                                         \n";
+    std::cout << "                                                                                                                                                         \n";
+    std::cout << "                                                                                                                                                         \n";
+    std::cout << "                                                                                                                                                         \n";
+    std::cout << "                                                                                                                                                         \n";
+    std::cout << "                                                                                                                                                         \n";
+}
 
+void Draw::RollDestination(int Routenum, int Dir)
+{
+    for (int i = 0; i < 11; i++) {
+        int a = 22 - i;
+        int b = 22 + a;
+
+        b = b - 33;
+
+        cfD.gotoXY(0, a);
+
+        if (Routenum == 0) {
+            if (Dir == 1) {
+                cfD.gotoXY(0, b);
+                DrawDest25(0);
+                cfD.gotoXY(0, a);
+            }
+            DrawDest25(Dir);
+        }
+        else if (Routenum == 1) {
+            if (Dir == 1) {
+                cfD.gotoXY(0, b);
+                DrawDest99(0);
+                cfD.gotoXY(0, a);
+            }
+            else {
+                cfD.gotoXY(0, b);
+                DrawDest25(1);
+                cfD.gotoXY(0, a);
+            }
+            DrawDest99(Dir);
+        }
+        else if (Routenum == 2) {
+            if (Dir == 1) {
+                cfD.gotoXY(0, b);
+                DrawDest101(0);
+                cfD.gotoXY(0, a);
+            }
+            else {
+                cfD.gotoXY(0, b);
+                DrawDest99(1);
+                cfD.gotoXY(0, a);
+            }
+            DrawDest101(Dir);
+        }
+        else if (Routenum == 3) {
+            if (Dir == 1) {
+                cfD.gotoXY(0, b);
+                DrawDest103(0);
+                cfD.gotoXY(0, a);
+            }
+            else {
+                cfD.gotoXY(0, b);
+                DrawDest101(1);
+                cfD.gotoXY(0, a);
+            }
+            DrawDest103(Dir);
+        }
+        else if (Routenum == 000) {
+            cfD.gotoXY(0, b);
+            DrawDest103(1);
+            cfD.gotoXY(0, a);
+            Dest("NIS");
+        }
+        
+        cfD.gotoXY(0, 23);
+        Clear();
+        cfD.gotoXY(0, 1);
+        Clear();
+        sleep_for(100ms);
+    }
+}
 
 void Draw::Destination(int Routenum, int Dir)
 {

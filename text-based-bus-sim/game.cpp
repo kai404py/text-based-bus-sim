@@ -31,11 +31,39 @@ void start(string route[], int id, int direction) {
 
 }
 
+int rollAllBlinds(string routes[]) {
+	int n = 4;
+	cout << "Rolling all blinds..." << endl;
+	cf.setColor(7, 0);
+	sleep_for(500ms);
+	for (int routeID = 0; routeID < n; routeID++) {
+		system("cls");
+
+		int id = stoi(routes[routeID]);
+		
+		d.RollDestination(id, 0);
+		sleep_for(1s);
+		system("cls");
+
+		d.RollDestination(id, 1);
+		sleep_for(1s);
+	}
+
+	d.RollDestination(000, 1);
+
+	return 1;
+}
+
 void game::startRoute(int RouteNumber) {
 	string routes[2][4] = {
 		{"0", "1", "2", "3"},
 		{"25", "99", "101", "103"}
 	};
+
+	if (RouteNumber == 000) {
+		rollAllBlinds(routes[0]);
+		std::exit(EXIT_SUCCESS);
+	}
 
 	string stops[4][2][50] = {
 		{

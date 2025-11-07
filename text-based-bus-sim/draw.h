@@ -13,6 +13,7 @@ public:
 	void Dest(string name);
 	//void RouteNumber(int RouteNumber);
 	void Destination(int RouteNumber, int Direction);
+	void RollDestination(int RouteNumber, int Direction);
 };
 
 #endif

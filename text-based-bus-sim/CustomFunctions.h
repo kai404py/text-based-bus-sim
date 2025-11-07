@@ -15,4 +15,5 @@ public:
 	void gotoXY(int x, int y);
 	void redrawDest(int returnTo, int id, int direction);
 	void redraw(int returnTo, string dest, int X);
+	void rollAll();
 };
