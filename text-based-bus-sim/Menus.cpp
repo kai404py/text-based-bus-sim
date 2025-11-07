@@ -2,26 +2,8 @@
 #include "game.h"
 
 CustomFunctions cfa;
+Draw da;
 game g;
-
-int hello()
-{
-    CustomWTTS tts;
-
-    cout << "____    __    ____     _______     __           ______      ______      .___  ___.     _______ \n";
-    cout << "\\   \\  /  \\  /   /    |   ____|   |  |         /      |    /  __  \\     |   \\/   |    |   ____|\n";
-    cout << " \\   \\/    \\/   /     |  |__      |  |        |  ,----'   |  |  |  |    |  \\  /  |    |  |__   \n";
-    cout << "  \\            /      |   __|     |  |        |  |        |  |  |  |    |  |\\/|  |    |   __|  \n";
-    cout << "   \\    /\\    /       |  |____    |  `----.   |  `----.   |  `--'  |    |  |  |  |    |  |____ \n";
-    cout << "    \\__/  \\__/        |_______|   |_______|    \\______|    \\______/     |__|  |__|    |_______|\n";
-
-    //tts.Speak("Welcome to the text based bus simulator");
-
-    sleep_for(1s);
-    system("cls");
-
-    return 0;
-}
 
 void gotoxy(int x, int y) {
     COORD coordinates;
@@ -32,11 +14,11 @@ void gotoxy(int x, int y) {
 
 void cls() {
     system("cls");
+    cfa.setColor(7, 0);
+    cfa.redraw(12, "NIS", 0);
 }
 
 int Menus::routeSelector() {
-
-    int routes[1] = { 1 };
 
 again:
     int option;
@@ -45,39 +27,41 @@ again:
 
     do {
         cfa.setColor(7, 0);
-        gotoxy(17, 7);
+        cfa.redraw(12, "NIS", 0);
+        cfa.setColor(7, 0);
+        gotoxy(50, 12);
         cout << "Routes:" << endl;
-        gotoxy(9, 9);
-        cout << "1" << endl;
-        gotoxy(9, 11);
+        gotoxy(50, 14);
         cout << "25" << endl;
-        gotoxy(9, 13);
+        gotoxy(50, 16);
+        cout << "99" << endl;
+        gotoxy(50, 18);
         cout << "101" << endl;
-        gotoxy(9, 15);
-        cout << "201" << endl;
+        gotoxy(50, 20);
+        cout << "103" << endl;
 
-        gotoxy(9, 17);
+        gotoxy(50, 23);
         cout << "USE UP AND DOWN ARROW KEYS...";
 
         if (j == 0) {
             cfa.setColor(0, 7);
-            gotoxy(9, 9);
-            cout << "1" << endl;
+            gotoxy(50, 14);
+            cout << "25" << endl;
         }
         if (j == 1) {
             cfa.setColor(0, 7);
-            gotoxy(9, 11);
-            cout << "25" << endl;
+            gotoxy(50, 16);
+            cout << "99" << endl;
         }
         if (j == 2) {
             cfa.setColor(0, 7);
-            gotoxy(9, 13);
+            gotoxy(50, 18);
             cout << "101" << endl;
         }
         if (j == 3) {
             cfa.setColor(0, 7);
-            gotoxy(9, 15);
-            cout << "201" << endl;
+            gotoxy(50, 20);
+            cout << "103" << endl;
         }
 
         option = _getch();
@@ -90,16 +74,16 @@ again:
     switch (j) {
 
     case 0:
-        g.startRoute(1);
+        g.startRoute(25);
         break;
     case 1:
-        g.startRoute(25);
+        g.startRoute(99);
         break;
     case 2:
         g.startRoute(101);
         break;
     case 3:
-        g.startRoute(201);
+        g.startRoute(103);
         break;
     }
 
@@ -107,6 +91,61 @@ again:
     return 0;
 }
 
+
+int Menus::destinationSelector(string routeNum, string inbound, string outbound) {
+
+again:
+    int option;
+    static int j = 0;
+    system("cls");
+
+    do {
+        cfa.setColor(7, 0);
+        cfa.redraw(12, routeNum, 0);
+        cfa.redraw(0, "route", 0);
+        cfa.setColor(7, 0);
+        gotoxy(50, 12);
+        cout << "Destinations:" << endl;
+        gotoxy(50, 14);
+        cout << inbound << endl;
+        gotoxy(50, 16);
+        cout << outbound << endl;
+
+        gotoxy(50, 19);
+        cout << "USE UP AND DOWN ARROW KEYS...";
+
+        if (j == 0) {
+            cfa.setColor(0, 7);
+            gotoxy(50, 14);
+            cout << inbound << endl;
+
+        }
+        if (j == 1) {
+            cfa.setColor(0, 7);
+            gotoxy(50, 16);
+            cout << outbound << endl;
+        }
+
+        option = _getch();
+        switch (option) {
+        case 80: j++; if (j > 1) j = 0; break;
+        case 72: j--; if (j < 0) j = 1; break;
+        }
+    } while (option != 13);
+
+    switch (j) {
+
+    case 0:
+        cfa.setColor(7, 0);
+        system("cls");
+        return 3;
+    case 1:
+        cfa.setColor(7, 0);
+        system("cls");
+        return 2;
+    }
+    return 0;
+}
 
 int Menus::mainMenu() {
 again:
@@ -116,31 +155,33 @@ again:
 
     do {
         cfa.setColor(7, 0);
-        gotoxy(17, 7);
-        cout << "  Menu   " << endl;
-        gotoxy(9, 9);
+        cfa.redraw(12, "NIS", 0);
+        cfa.setColor(7, 0);
+        gotoxy(50, 12);
+        cout << "          Menu   " << endl;
+        gotoxy(50,14);
         cout << "          Start            " << endl;
-        gotoxy(9, 11);
+        gotoxy(50, 16);
         cout << "         Credits           " << endl;
-        gotoxy(9, 13);
+        gotoxy(50, 18);
         cout << "          Quit             " << endl;
 
-        gotoxy(9, 17);
+        gotoxy(50, 21);
         cout << "USE UP AND DOWN ARROW KEYS...";
 
         if (j == 0) {
             cfa.setColor(0, 7);
-            gotoxy(9, 9);
+            gotoxy(50, 14);
             cout << "          Start          " << endl;
         }
         if (j == 1) {
             cfa.setColor(0, 7);
-            gotoxy(9, 11);
+            gotoxy(50, 16);
             cout << "         Credits         " << endl;
         }
         if (j == 2) {
             cfa.setColor(0, 7);
-            gotoxy(9, 13);
+            gotoxy(50, 18);
             cout << "          Quit         " << endl;
         }
 
@@ -159,7 +200,8 @@ again:
 		cout << "Starting game..." << endl;
 		sleep_for(1s);
         cls();
-		hello();
+		cfa.redraw(0, "Hello", 0);
+        sleep_for(1s);
         return 0;
         _getch();
         break;
@@ -172,7 +214,7 @@ again:
     case 2:
         cls();
         cfa.setColor(7, 0);
-        return 0;
+        return 1;
     }
     return 0;
 }

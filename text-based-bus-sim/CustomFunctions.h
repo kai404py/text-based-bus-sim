@@ -12,4 +12,7 @@ class CustomFunctions
 {
 public:
 	void setColor(int textColor, int bgColor);
+	void gotoXY(int x, int y);
+	void redrawDest(int returnTo, int id, int direction);
+	void redraw(int returnTo, string dest, int X);
 };
