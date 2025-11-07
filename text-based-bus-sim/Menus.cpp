@@ -1,15 +1,10 @@
 #include "menus.h"
-#include <iostream>
-#include <conio.h>
-#include <windows.h>
-#include "tts.h"
-#include "windowsH.h"
-#include "draw.h"
+#include "game.h"
 
-using namespace std;
-Draw d;
+CustomFunctions cfa;
+game g;
 
-void hello()
+int hello()
 {
     CustomWTTS tts;
 
@@ -20,16 +15,12 @@ void hello()
     cout << "   \\    /\\    /       |  |____    |  `----.   |  `----.   |  `--'  |    |  |  |  |    |  |____ \n";
     cout << "    \\__/  \\__/        |_______|   |_______|    \\______|    \\______/     |__|  |__|    |_______|\n";
 
-    tts.Speak("Hello, welcome to the text based bus simulator");
+    //tts.Speak("Welcome to the text based bus simulator");
 
     sleep_for(1s);
     system("cls");
-    d.Bus();
-}
 
-void foreColor(int color) {
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(hConsole, color);
+    return 0;
 }
 
 void gotoxy(int x, int y) {
@@ -43,6 +34,51 @@ void cls() {
     system("cls");
 }
 
+int Menus::routeSelector() {
+
+    int routes[1] = { 1 };
+
+again:
+    int option;
+    static int j = 0;
+    system("cls");
+
+    do {
+        cfa.setColor(7, 0);
+        gotoxy(17, 7);
+        cout << "Routes:" << endl;
+        gotoxy(9, 9);
+        cout << "1" << endl;
+
+        gotoxy(9, 17);
+        cout << "USE UP AND DOWN ARROW KEYS...";
+
+        if (j == 0) {
+            cfa.setColor(0, 7);
+            gotoxy(9, 9);
+            cout << "1" << endl;
+        }
+
+        option = _getch();
+        switch (option) {
+        case 80: j++; if (j > 2) j = 0; break;
+        case 72: j--; if (j < 0) j = 2; break;
+        }
+    } while (option != 13);
+
+    switch (j) {
+    
+    case 0:
+        cls();
+        cfa.setColor(7, 0);
+        g.startRoute(1);
+        _getch();
+        break;
+    }
+    return 0;
+}
+
+
 int Menus::mainMenu() {
 again:
     int option;
@@ -50,33 +86,33 @@ again:
     system("cls");
 
     do {
-        foreColor(7);
+        cfa.setColor(7, 0);
         gotoxy(17, 7);
-        cout << "-- MENU --" << endl;
+        cout << "  Menu   " << endl;
         gotoxy(9, 9);
-        cout << "Start" << endl;
+        cout << "          Start            " << endl;
         gotoxy(9, 11);
-        cout << "Credits" << endl;
+        cout << "         Credits           " << endl;
         gotoxy(9, 13);
-        cout << "Quit" << endl;
+        cout << "          Quit             " << endl;
 
         gotoxy(9, 17);
         cout << "USE UP AND DOWN ARROW KEYS...";
 
         if (j == 0) {
-            foreColor(8);
+            cfa.setColor(0, 7);
             gotoxy(9, 9);
-            cout << "Start" << endl;
+            cout << "          Start          " << endl;
         }
         if (j == 1) {
-            foreColor(8);
+            cfa.setColor(0, 7);
             gotoxy(9, 11);
-            cout << "Credits" << endl;
+            cout << "         Credits         " << endl;
         }
         if (j == 2) {
-            foreColor(8);
+            cfa.setColor(0, 7);
             gotoxy(9, 13);
-            cout << "Quit" << endl;
+            cout << "          Quit         " << endl;
         }
 
         option = _getch();
@@ -89,19 +125,25 @@ again:
     switch (j) {
     case 0:
         cls();
-        foreColor(7);
-        hello();
+        cfa.setColor(7, 0);
+        
+		cout << "Starting game..." << endl;
+		sleep_for(1s);
+        cls();
+		hello();
+        return 0;
         _getch();
         break;
     case 1:
         cls();
-        foreColor(7);
+        cfa.setColor(7, 0);
         cout << "IDK me i guess";
         _getch();
         break;
     case 2:
         cls();
-        foreColor(7);
+        cfa.setColor(7, 0);
         return 0;
     }
+    return 0;
 }

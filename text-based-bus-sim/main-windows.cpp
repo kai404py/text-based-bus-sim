@@ -6,12 +6,8 @@
 //
 
 #include <iostream>
-
-//#include "main.h"
-#include "tts.h"
+#include "CustomFunctions.h"
 #include "menus.h"
-#include "windowsH.h"
-#include "draw.h"
 
 
 using namespace std;
@@ -20,8 +16,8 @@ Menus m;
 
 int main()
   {
-    //CustomWTTS tts;
     m.mainMenu();
+	m.routeSelector();
 
     return 0;
 }

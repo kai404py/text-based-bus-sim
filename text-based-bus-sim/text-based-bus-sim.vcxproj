@@ -123,14 +123,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CustomFunctions.cpp" />
     <ClCompile Include="draw.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="main-windows.cpp" />
     <ClCompile Include="Menus.cpp" />
     <ClCompile Include="tts.cpp" />
     <ClCompile Include="windowsTTS.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CustomFunctions.h" />
     <ClInclude Include="draw.h" />
+    <ClInclude Include="game.h" />
     <ClInclude Include="linux.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Menus.h" />

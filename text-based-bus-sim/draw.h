@@ -10,6 +10,7 @@ class Draw
 {
 public:
 	void Bus();
+	void RouteNumber(int RouteNumber);
 };
 
 #endif
