@@ -1,0 +1,7 @@
+{
+    "settings": {
+        "code-runner.executorMap": {
+            "cpp": "g++ *.cpp -o main"
+        }
+    }
+}

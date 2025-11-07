@@ -11,15 +11,15 @@
 
 #include <iostream>
 
-//#include "windows.h"
-#include "linux.h"
+#include "windows.h"
+//#include "linux.h"
 
 void hello()
 {
   CustomTTS tts;
   tts.Speak("Hello, welcome to the text based bus simulator!");
   sleep(1);
-  system("clear");
+  system("clr");
   bus();
 }
 
@@ -30,6 +30,6 @@ int main()
     
 
     
-    //bus();
+    bus();
     return 0;
 }

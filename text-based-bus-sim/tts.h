@@ -5,9 +5,18 @@
 //  Created by Kai on 06/11/2025.
 //
 
+#ifndef TTS_H
+#define TTS_H
 
+#include <string>
+#include <iostream>
 
-class Text_To_Speech
+using namespace std;
+
+class CustomTTS
 {
-    void Speak(int someInt);
+public:
+    void Speak(string text);
 };
+
+#endif

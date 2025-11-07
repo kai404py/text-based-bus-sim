@@ -1,5 +1,7 @@
 {
-    "stop 1",
-    "stop 2",
-    "stop 3"
+    "stops": [
+        "stop 1",
+        "stop 2",
+        "stop 3"
+    ],
 }

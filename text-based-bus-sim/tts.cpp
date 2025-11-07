@@ -6,7 +6,15 @@
 //
 #include "tts.h"
 
-void Text_To_Speech::Speak(int someInt)
+void CustomTTS::Speak(string text)
 {
+    cout << text;
     
+    string str = "say " + text;
+
+    const char* command = str.c_str();
+
+    std::cout << "\n" << text <<  "\n" << std::endl;
+    
+    system(command);
 }
