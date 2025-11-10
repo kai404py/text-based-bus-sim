@@ -5,14 +5,14 @@
 //  Created by Kai on 06/11/2025.
 //
 
-//#include "main.h"
-#include "bus.cpp"
-#include "tts.h"
-
 #include <iostream>
+#include "CustomFunctions.h"
+#include "Menus.h"
+#pragma comment(lib, "user32")
 
-//#include "windows.h"
-#include "linux.h"
+using namespace std;
+Menus m;
+CustomFunctions cfb;
 
 void hello()
 {
@@ -25,9 +25,10 @@ void hello()
 
 int main()
   {
-    CustomTTS tts;
-    hello();
+    fullscreen();
+    m.mainMenu();
+	m.routeSelector();
 
-    //bus();
     return 0;
 }
+
