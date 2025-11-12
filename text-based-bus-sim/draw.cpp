@@ -270,78 +270,6 @@ void Clear() {
     std::cout << "                                                                                                                                                         \n";
 }
 
-void Draw::RollDestination(int Routenum, int Dir)
-{
-    for (int i = 0; i < 11; i++) {
-        int a = 22 - i;
-        int b = 22 + a;
-
-        b = b - 33;
-
-        cfD.gotoXY(0, a);
-
-        if (Routenum == 0) {
-            if (Dir == 1) {
-                cfD.gotoXY(0, b);
-                DrawDest25(0);
-                cfD.gotoXY(0, a);
-            }
-            DrawDest25(Dir);
-        }
-        else if (Routenum == 1) {
-            if (Dir == 1) {
-                cfD.gotoXY(0, b);
-                DrawDest99(0);
-                cfD.gotoXY(0, a);
-            }
-            else {
-                cfD.gotoXY(0, b);
-                DrawDest25(1);
-                cfD.gotoXY(0, a);
-            }
-            DrawDest99(Dir);
-        }
-        else if (Routenum == 2) {
-            if (Dir == 1) {
-                cfD.gotoXY(0, b);
-                DrawDest101(0);
-                cfD.gotoXY(0, a);
-            }
-            else {
-                cfD.gotoXY(0, b);
-                DrawDest99(1);
-                cfD.gotoXY(0, a);
-            }
-            DrawDest101(Dir);
-        }
-        else if (Routenum == 3) {
-            if (Dir == 1) {
-                cfD.gotoXY(0, b);
-                DrawDest103(0);
-                cfD.gotoXY(0, a);
-            }
-            else {
-                cfD.gotoXY(0, b);
-                DrawDest101(1);
-                cfD.gotoXY(0, a);
-            }
-            DrawDest103(Dir);
-        }
-        else if (Routenum == 000) {
-            cfD.gotoXY(0, b);
-            DrawDest103(1);
-            cfD.gotoXY(0, a);
-            Dest("NIS");
-        }
-        
-        cfD.gotoXY(0, 23);
-        Clear();
-        cfD.gotoXY(0, 1);
-        Clear();
-        sleep_for(100ms);
-    }
-}
-
 void Draw::Destination(int Routenum, int Dir)
 {
     if (Routenum == 0) {
@@ -355,6 +283,50 @@ void Draw::Destination(int Routenum, int Dir)
     }
     else if (Routenum == 3) {
         DrawDest103(Dir);
+    }
+
+}
+
+void Draw::RollDestination(int Routenum, int Dir)
+{
+    for (int i = 0; i < 11; i++) {
+        int a = 22 - i;
+        int b = 22 + a;
+
+        b = b - 33;
+
+        //Routenum = Routenum - 1;
+
+        cfD.gotoXY(0, a);
+
+        // Take in the Route ID and the Direction
+		// if the direction is 0 and the route is not 25 / id:0 then show the previous route with dir 1
+		// else show the current route with dir 0
+
+        
+        if (Routenum == 0 && Dir == 0) {
+            cfD.gotoXY(0, b);
+            NotInService();
+            cfD.gotoXY(0, a);
+        }
+        else if (Dir == 0) {
+            cfD.gotoXY(0, b);
+            Destination(Routenum - 1, 1);
+            cfD.gotoXY(0, a);
+        } else {
+            cfD.gotoXY(0, b);
+            Destination(Routenum, 0);
+            cfD.gotoXY(0, a);
+        }
+
+        Destination(Routenum, Dir);
+
+        cfD.gotoXY(0, 23);
+        Clear();
+
+        cfD.gotoXY(0, 1);
+        Clear();
+        sleep_for(100ms);
     }
 }
 

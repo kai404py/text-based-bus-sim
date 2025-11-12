@@ -9,7 +9,6 @@ CustomWTTS Ctts;
 using namespace std;
 
 
-
 void start(string route[], int id, int direction) {
 	int currentStop = 0;
 	int baseY = 12;
@@ -31,25 +30,21 @@ void start(string route[], int id, int direction) {
 
 }
 
-int rollAllBlinds(string routes[]) {
-	int n = 4;
-	cout << "Rolling all blinds..." << endl;
-	cf.setColor(7, 0);
-	sleep_for(500ms);
-	for (int routeID = 0; routeID < n; routeID++) {
-		system("cls");
+int rollAllBlinds(string routes[], int stopAtRouteId, int stopAtDirection) {
+	int n = stopAtRouteId;
 
-		int id = stoi(routes[routeID]);
-		
-		d.RollDestination(id, 0);
-		sleep_for(1s);
-		system("cls");
+	for (int i = 0; i <= n; i++) {
+		int routeId = stoi(routes[i]);
+		for (int dir = 0; dir <= 1; dir++) {
+			d.RollDestination(routeId, dir);
+			if (routeId == stopAtRouteId && dir == stopAtDirection) {
+				system("cls");
+				return 0;
+			}
 
-		d.RollDestination(id, 1);
-		sleep_for(1s);
+			sleep_for(100ms);
+		}
 	}
-
-	d.RollDestination(000, 1);
 
 	return 1;
 }
@@ -61,7 +56,7 @@ void game::startRoute(int RouteNumber) {
 	};
 
 	if (RouteNumber == 000) {
-		rollAllBlinds(routes[0]);
+		rollAllBlinds(routes[0], 4, 0);
 		std::exit(EXIT_SUCCESS);
 	}
 
@@ -122,6 +117,11 @@ void game::startRoute(int RouteNumber) {
 				}
 			}
 
+			cout << id << " " << direction << endl;
+
+			sleep_for(500ms);
+
+			rollAllBlinds(routes[0], id, direction);
 			start(stops[id][direction], id, direction);
 			break;
 		}
