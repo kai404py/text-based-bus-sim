@@ -1,0 +1,5 @@
+25*Keele*Stoke-on-Trent*25-keele-stoke.txt,
+99*Newcastle*Chell Heath*99-newcastle-chell.txt,
+101*Stafford*Stoke-on-Trent*101-stafford-stoke.txt,
+103*Crewe*Stoke-on-Trent*103-crewe-stoke.txt
+
