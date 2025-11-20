@@ -90,23 +90,6 @@ void Clear() {
     std::cout << "                                                                                                                                                         \n";
 }
 
-//void Draw::Destination(int Routenum, int Dir)
-//{
-//    if (Routenum == 0) {
-//        DrawDest25(Dir);
-//    }
-//    else if (Routenum == 1) {
-//        DrawDest99(Dir);
-//    }
-//    else if (Routenum == 2) {
-//        DrawDest101(Dir);
-//    }
-//    else if (Routenum == 3) {
-//        DrawDest103(Dir);
-//    }
-//
-//}
-
 void Draw::RollDestination(string RollToNum, string RollFromNum, string RollToDest, string RollFromDest)
 {
     for (int i = 0; i < 11; i++) {
