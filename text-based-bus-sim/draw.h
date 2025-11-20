@@ -10,10 +10,10 @@ class Draw
 {
 public:
 	void Bus();
-	void Dest(string name);
+	void Dest(const std::string& dest, const std::string& num);
 	//void RouteNumber(int RouteNumber);
 	void Destination(int RouteNumber, int Direction);
-	void RollDestination(int RouteNumber, int Direction);
+	void RollDestination(string RollToNum, string RollFromNum, string RollToDest, string RollFromDest);
 };
 
 #endif

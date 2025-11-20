@@ -1,7 +1,0 @@
-0 - {
-"Newcastle Bus Station", "Newcastle Under Lyme, opp Hannover Street", "The Brampton, opp Sidmouth Avenue", "The Brampton Museum (opp)", "Newcastle Under Lyme, opp Sandy Lane", "May Avenue (opp)", "May Bank, opp Upper Marsh", "May Bank, opp Upper Marsh", "Wolstanton, opp St Margaret’s Church", "Wolstanton, opp Morris Square", "Wolstanton, adj Marsh Avenue", "Porthill, adj St Andrew`s Church", "Porthill, adj Second Avenue", "Porthill, opp Vale View",  "Longport Road (opp)", "Longport, adj Station Street", "Longport, adj Trubshaw Cross", "Longport, opp Brereton Place", "Brownhills High School (opp)", "Brownhills Business Park (adj)", "Tunstall, adj Highgate", "Tunstall, adj stop A", "Tunstall, adj stop E", "Tunstall Catholic Church (opp)", "Chell, adj Sunnyside Avenue", "Chell, opp Eastwood Avenue", "Chell, adj Greenbank Road", "Chell, opp Burslem Golf Club", "Chell, adj Irene Avenue", "Little Chell Lane (adj)", "Chell, adj Irene Avenue", "Chell, opp Gowan Avenue", "Chell, opp Carlton Avenue", "Chell, adj Stoneleigh Road", "Chell, adj Beswick Road", "Chell, opp Fegg Hayes Road", "Chell, adj Biddulph Road", "Chell, adj Biddulph Road", "Oxford, adj Cumberbatch Avenue", "Fegg Hayes Road (opp)", "Fegg Hayes, opp Johnson Place", "Chell Heath, adj Barncroft Road"
-},
-
-1 - {
-"Not Stops Found"
-}

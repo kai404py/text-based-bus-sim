@@ -1,5 +1,9 @@
 #pragma once
 #include "CustomFunctions.h"
+#include <iostream>
+#include <iomanip>
+
+
 
 class Menus
 {

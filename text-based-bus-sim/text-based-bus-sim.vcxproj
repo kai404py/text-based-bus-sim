@@ -106,6 +106,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>winhttp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -141,6 +142,13 @@
     <ClInclude Include="tts.h" />
     <ClInclude Include="windowsH.h" />
     <ClInclude Include="windowsTTS.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="routes\101.txt" />
+    <Text Include="routes\103.txt" />
+    <Text Include="routes\25.txt" />
+    <Text Include="routes\99.txt" />
+    <Text Include="routes\routes.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

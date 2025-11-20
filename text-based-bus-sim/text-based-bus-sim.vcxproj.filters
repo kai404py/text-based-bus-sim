@@ -66,4 +66,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="routes\99.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="routes\101.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="routes\103.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="routes\routes.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="routes\25.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>
